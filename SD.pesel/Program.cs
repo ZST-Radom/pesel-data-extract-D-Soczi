@@ -2,26 +2,31 @@
 
 using SD.pesel;
 
-Console.WriteLine("Wprowadź numer PESEL:");
-
-string id = Console.ReadLine();
-
-PersonId personId = new PersonId(id);
-
-bool isValid = personId.IsValid();
-
-if (isValid)
+internal class Program
 {
-    int day = personId.GetDay();
-    int month = personId.GetMonth();
-    int year = personId.GetYear();
-    string gender = personId.GetGender();
-    int yearOfBirth = personId.GetYearOfBirth();
+    private static void Main(string[] args)
+    {
+        Console.WriteLine("Wprowadź numer PESEL:");
 
-    Console.WriteLine($"PESEL jest poprawny. Data urodzenia: {day}.{month}.{year} płeć: {gender}, masz: {yearOfBirth} lat.");
-}
-else
-{
-    Console.WriteLine("PESEL jest niepoprawny");
-}
+        string id = Console.ReadLine();
 
+        PersonId personId = new PersonId(id);
+
+        bool isValid = personId.IsValid();
+
+        if (isValid)
+        {
+            int day = personId.GetDay();
+            int month = personId.GetMonth();
+            int year = personId.GetYear();
+            string gender = personId.GetGender();
+            int yearOfBirth = personId.GetYearOfBirth();
+
+            Console.WriteLine($"PESEL jest poprawny. Data urodzenia: {day}.{month}.{year} płeć: {gender}, masz: {yearOfBirth} lat.");
+        }
+        else
+        {
+            Console.WriteLine("PESEL jest niepoprawny");
+        }
+    }
+}
